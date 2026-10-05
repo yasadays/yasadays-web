@@ -2,6 +2,7 @@
 import { SITE_TITLE } from "../lib/constants";
 
 import "../styles/global.css";
+import Footer from "./footer/Footer.astro";
 ---
 
 <html lang="en">
@@ -27,7 +28,22 @@ import "../styles/global.css";
       Skip to content
     </a>
     <div class="mx-auto min-h-dvh max-w-[1440px] min-[1440px]:border-x">
-      <slot />
+      <!-- Footer -->
+      <!-- TODO: extract to component -->
+      <header>
+        <nav class="flex border-b *:py-1 *:basis-0 *:grow *:text-center *:font-medium *:text-xl *:not-last:border-r *:block *:overflow-hidden">
+          <a href="#about">Myself</a>
+          <a href="#works">Works</a>
+          <a href="#links">Links</a>
+          <a href="#blog">Blog</a>
+        </nav>
+      </header>
+
+      <main id="main">
+        <slot />
+      </main>
+
+      <Footer />
     </div>
   </body>
 </html>

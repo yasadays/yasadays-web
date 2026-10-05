@@ -1,0 +1,114 @@
+---
+import { COLORS, INK, SHAPE_PATHS, type ShapeKind } from "../../lib/shapes";
+import LoveButton from "./LoveButton";
+
+const endSentences = [
+  "Thank you for reading all the way through!",
+  "Welcome to the End Of The Page club!",
+  '"Wait, that\'s it??"',
+  "That's all folks, Yasa out.",
+  "Try clicking me on the home page :)",
+  "How many more secrets to put here?",
+  "I ran out of idea on what to put here :(",
+];
+
+const shapeRaffle: ShapeKind[] = [
+  "sparkle",
+  "circle",
+  "triangle",
+  "plus",
+  "square",
+];
+// Filter so that the fill color isn't the same as the band's bg.
+const fills = COLORS.filter((color) => color !== INK && color !== "#93c5fd");
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t">
+  <div
+    class="marquee overflow-hidden border-b bg-blue-300 py-2 flex items-center gap-4 justify-center"
+    aria-hidden="true"
+  >
+    <svg
+      viewBox="-50 -50 100 100"
+      class="hidden md:block spin size-5 shrink-0 overflow-visible"
+    >
+      <path
+        d={
+          SHAPE_PATHS[
+            shapeRaffle[Math.ceil(Math.random() * 100) % shapeRaffle.length]
+          ]
+        }
+        fill={fills[Math.ceil(Math.random() * 100) % fills.length]}
+        stroke={INK}
+        stroke-width="8"
+        stroke-linejoin="round"
+      />
+    </svg>
+    <p class="text-lg font-semibold text-center">
+      {endSentences[Math.ceil(Math.random() * 100) % endSentences.length]}
+    </p>
+    <svg
+      viewBox="-50 -50 100 100"
+      class="hidden md:block spin size-5 shrink-0 overflow-visible"
+    >
+      <path
+        d={
+          SHAPE_PATHS[
+            shapeRaffle[Math.ceil(Math.random() * 100) % shapeRaffle.length]
+          ]
+        }
+        fill={fills[Math.ceil(Math.random() * 100) % fills.length]}
+        stroke={INK}
+        stroke-width="8"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </div>
+
+  <div class="flex flex-col items-center justify-between gap-2 px-6 py-6 sm:flex-row md:px-8 lg:px-12 xl:px-16">
+    <p>
+      Made with <LoveButton client:visible /> by Yasa.
+    </p>
+    <p class="text-sm">
+      © {year} yasadays ·
+      <a href="#" class="font-medium underline-offset-4 hover:underline">
+        Back to top ↑
+      </a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .track {
+    animation: marquee 40s linear infinite;
+  }
+
+  .marquee:hover .track {
+    animation-play-state: paused;
+  }
+
+  .spin {
+    animation: spin 6s linear infinite;
+  }
+
+  @keyframes marquee {
+    to {
+      translate: -50%;
+    }
+  }
+
+  @keyframes spin {
+    to {
+      rotate: 1turn;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .track,
+    .spin {
+      animation: none;
+    }
+  }
+</style>

@@ -1,56 +1,9 @@
 ---
-import { Image } from "astro:assets";
 import PageLayout from "../components/PageLayout.astro";
-
-import yasaHeader1 from "../assets/yasa_header_1.png";
-import yasaHeader2 from "../assets/yasa_header_2.png";
-
-const headerImg = Math.random() < 0.5 ? yasaHeader1 : yasaHeader2;
+import AboutSection from "../components/index/AboutSection";
 ---
 
 <PageLayout>
   <!-- Navigation -->
-  <header>
-    <nav class="flex border-b *:py-1 *:basis-0 *:grow *:text-center *:font-medium *:text-xl *:not-last:border-r *:block *:overflow-hidden">
-      <a href="#about">Myself</a>
-      <a href="#works">Works</a>
-      <a href="#links">Links</a>
-      <a href="#blog">Blog</a>
-    </nav>
-  </header>
-
-  <main>
-    <section id="about" class="flex flex-col md:flex-row overflow-hidden gap-8">
-      <div class="shrink self-center flex flex-col gap-4 mt-10 px-6 md:gap-10 md:pl-8 md:py-8 md:pr-0 lg:pl-12 xl:pl-16">
-        <div>
-          <h1 class="text-4xl font-semibold text-center md:text-5xl md:text-left xl:text-7xl">
-            <span class="relative before:bg-blue-300 before:absolute before:-left-1 before:-right-1 before:top-0 before:bottom-0 before:-z-1 before:rotate-3">
-              Yasa's
-            </span>{" "}
-            humble site
-          </h1>
-          <p class="text-center italic md:text-left lg:text-lg">
-            Web developer by day, game development by heart~
-          </p>
-        </div>
-
-        <p class="text-center text-lg md:text-left lg:text-xl xl:text-2xl">
-          I am a frontend web developer, mostly working with React and its
-          ecosystems. In my spare time, I'm currently learning game development,
-          engine, and graphics rendering for my long term project. I also blog!
-        </p>
-      </div>
-
-      <Image
-        src={headerImg}
-        height={1024}
-        alt="Yasa's avatar"
-        class="grow shrink-0 self-end md:h-auto md:w-[50%] md:max-w-150 md:pt-8"
-      />
-    </section>
-  </main>
-
-  <footer>
-    <p>Made with love by Yasa.</p>
-  </footer>
+  <AboutSection random={Math.random()} client:load />
 </PageLayout>

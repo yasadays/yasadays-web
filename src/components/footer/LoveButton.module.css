@@ -1,0 +1,27 @@
+/* Two quick thumps, then a rest. */
+@keyframes heartbeat {
+  0%,
+  40%,
+  100% {
+    scale: 1;
+  }
+
+  10%,
+  30% {
+    scale: 1.15;
+  }
+
+  20% {
+    scale: 0.95;
+  }
+}
+
+.heartbeat {
+  animation: heartbeat 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heartbeat {
+    animation: none;
+  }
+}

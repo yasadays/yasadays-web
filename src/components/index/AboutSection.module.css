@@ -1,0 +1,62 @@
+@keyframes highlightAnim {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 103%;
+  }
+}
+
+.bgDots {
+  background-image: radial-gradient(
+    circle,
+    rgb(70 40 59 / 0.2) 1.5px,
+    transparent 2px
+  );
+  background-size: 24px 24px;
+  background-position: center;
+}
+
+.bgDotsSpotlight {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(circle, #c04b6a 2.5px, transparent 3px);
+    background-size: 24px 24px;
+    background-position: center;
+    mask-image: radial-gradient(
+      circle 180px at var(--pointer-x, 50%) var(--pointer-y, 50%),
+      black,
+      transparent
+    );
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  &[data-pointer]::before {
+    opacity: 1;
+  }
+}
+
+.highlight::before {
+  content: "";
+
+  background-color: var(--color-blue-300);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 103%;
+  z-index: -1;
+  rotate: 3deg;
+
+  transform-origin: top left;
+  animation-name: highlightAnim;
+  animation-duration: 800ms;
+  animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+}
