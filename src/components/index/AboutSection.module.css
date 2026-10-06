@@ -8,6 +8,16 @@
   }
 }
 
+@keyframes highlight2Anim {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: 0 0;
+  }
+}
+
 .bgDots {
   background-image: radial-gradient(
     circle,
@@ -26,7 +36,7 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    background-image: radial-gradient(circle, #c04b6a 2.5px, transparent 3px);
+    background-image: radial-gradient(circle, #e0859d 2.5px, transparent 3px);
     background-size: 24px 24px;
     background-position: center;
     mask-image: radial-gradient(
@@ -46,17 +56,32 @@
 .highlight::before {
   content: "";
 
-  background-color: var(--color-blue-300);
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   width: 103%;
   z-index: -1;
-  rotate: 3deg;
-
   transform-origin: top left;
+
   animation-name: highlightAnim;
+  animation-duration: 800ms;
+  animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.highlight2 {
+  background-image: linear-gradient(
+    to right,
+    var(--highlight-color) 50%,
+    transparent 50%
+  );
+  background-size: 200% 100%;
+  background-position: 0 0;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0.1em 0;
+
+  animation-name: highlight2Anim;
   animation-duration: 800ms;
   animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
 }
