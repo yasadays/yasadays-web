@@ -169,9 +169,9 @@ export default function AboutSection({ random }: { random: number }) {
           <Highlight2 color="var(--color-green-200)">
             frontend web developer
           </Highlight2>
-          , mostly working with React and its ecosystems. In my spare time, I'm
+          , mostly working with <strong>React</strong> and its ecosystems. In my spare time, I'm
           doing{" "}
-          <Highlight2 color="var(--color-orange-200)">game engine</Highlight2>{" "}
+          <Highlight2 color="var(--color-purple-200)">game engine</Highlight2>{" "}
           and{" "}
           <Highlight2 color="var(--color-purple-200)">
             graphics rendering
@@ -194,11 +194,6 @@ export default function AboutSection({ random }: { random: number }) {
         </a> */}
 
         <SlickLink href="#works">My Works</SlickLink>
-
-        <p className="text-center font-semibold italic md:text-left">
-          Oh yeah also website still unfinished lol, will be finished
-          soon&trade;
-        </p>
       </div>
 
       <div className="relative isolate shrink-0 grow self-end md:w-[50%] md:max-w-150 md:pt-8">
@@ -222,6 +217,15 @@ export default function AboutSection({ random }: { random: number }) {
             />
           ))}
         </button>
+
+        <a
+          href={`https://www.instagram.com/yureitofu/`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute right-3 bottom-3 border bg-white px-2 py-0.5 text-xs font-medium transition-colors hover:bg-black hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2"
+        >
+          Art by @yureitofu <span aria-hidden="true">&#8599;</span>
+        </a>
       </div>
     </section>
   );

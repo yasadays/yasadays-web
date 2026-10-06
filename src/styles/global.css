@@ -3,6 +3,10 @@
 @theme {
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .font-sans {
   font-family: "Archivo", sans-serif;
   font-optical-sizing: auto;

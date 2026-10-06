@@ -1,9 +1,10 @@
 ---
 import PageLayout from "../components/PageLayout.astro";
 import AboutSection from "../components/index/AboutSection";
+import ConstructionBanner from "../components/ConstructionBanner.astro";
 ---
 
 <PageLayout>
-  <!-- Navigation -->
   <AboutSection random={Math.random()} client:load />
+  <ConstructionBanner />
 </PageLayout>

@@ -1,8 +1,9 @@
 ---
 import { SITE_TITLE } from "../lib/constants";
+import Footer from "./footer/Footer.astro";
+import Navbar from "./navbar/Navbar.astro";
 
 import "../styles/global.css";
-import Footer from "./footer/Footer.astro";
 ---
 
 <html lang="en">
@@ -28,16 +29,7 @@ import Footer from "./footer/Footer.astro";
       Skip to content
     </a>
     <div class="relative mx-auto min-h-dvh max-w-[1440px] min-[1440px]:border-x">
-      <!-- Footer -->
-      <!-- TODO: extract to component -->
-      <header class="sticky top-0 z-10">
-        <nav class="flex bg-white border-b *:py-1 *:basis-0 *:grow *:text-center *:font-medium *:text-xl *:not-last:border-r *:block *:overflow-hidden">
-          <a href="#about">Myself</a>
-          <a href="#works">Works</a>
-          <a href="#links">Contact</a>
-          <a href="#blog">Blog</a>
-        </nav>
-      </header>
+      <Navbar />
 
       <main id="main">
         <slot />
