@@ -1,41 +1,26 @@
 ---
-import { SITE_TITLE } from "../lib/constants";
+import type { ComponentProps } from "astro/types";
+import Root from "./Root.astro";
 import Footer from "./footer/Footer.astro";
 import Navbar from "./navbar/Navbar.astro";
 
-import "../styles/global.css";
+type Props = ComponentProps<typeof Root>;
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{SITE_TITLE}</title>
-  </head>
-  <body class="font-sans">
-    <a
-      href="#main"
-      class="sr-only z-50 bg-black px-4 py-3 font-semibold text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
-    >
-      Skip to content
-    </a>
-    <div class="relative mx-auto min-h-dvh max-w-[1440px] min-[1440px]:border-x">
-      <Navbar />
+<Root {...Astro.props}>
+  <a
+    href="#main"
+    class="sr-only z-50 bg-black px-4 py-3 font-semibold text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+  >
+    Skip to content
+  </a>
+  <div class="relative mx-auto min-h-dvh max-w-[1440px] min-[1440px]:border-x">
+    <Navbar />
 
-      <main id="main">
-        <slot />
-      </main>
+    <main id="main">
+      <slot />
+    </main>
 
-      <Footer />
-    </div>
-  </body>
-</html>
+    <Footer />
+  </div>
+</Root>
